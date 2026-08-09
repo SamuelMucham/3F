@@ -7,9 +7,9 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <span className="eyebrow">Entrega todos os dias · 10h às 23h</span>
+            <span className="eyebrow"> 10h às 23h</span>
             <h1 className="display">
-              Bebida <em>gelada</em>,<br />na sua porta
+              Bebida <em>gelada</em>,<br />
             </h1>
             <p className="hero-sub">
               Cerveja, refrigerante, destilado, vinho e gelo. Tudo num só pedido,
