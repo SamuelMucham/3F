@@ -3,6 +3,8 @@ import { Anton, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CartWidget from "@/components/CartWidget";
+import { CartProvider } from "@/lib/cart-context";
 
 const display = Anton({
   subsets: ["latin"],
@@ -36,9 +38,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+          <CartWidget />
+        </CartProvider>
       </body>
     </html>
   );

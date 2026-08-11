@@ -19,7 +19,7 @@ export default function Home() {
               <Link href="/produtos" className="cta-button">Ver Catálogo Completo</Link>
               
                 <a className="cta-button"
-          href="https://wa.me/5500000000000"
+          href="https://wa.me/554197214733"
           target="_blank"
           rel="noopener noreferrer">
                 Peça no WhatsApp
