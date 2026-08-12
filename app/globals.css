@@ -805,6 +805,71 @@ button {
   color: var(--red);
 }
 
+.frete-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.frete-calc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  border: 1.5px solid var(--paper-dim);
+  color: var(--paper);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 11px 20px;
+  border-radius: 3px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.frete-calc-btn:hover,
+.frete-calc-btn:focus-visible {
+  border-color: var(--ice);
+  color: var(--ice);
+}
+
+.frete-calc-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.frete-result {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-base);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  color: var(--paper-dim);
+}
+
+.frete-result strong {
+  color: var(--amber);
+  font-family: var(--font-mono), monospace;
+}
+
+.cart-total-final {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin-top: -4px;
+}
+
+.cart-total-final strong {
+  font-size: 1.35rem;
+}
+
 .delivery-payment-options {
   display: flex;
   flex-direction: column;
