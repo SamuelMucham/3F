@@ -870,6 +870,134 @@ button {
   font-size: 1.35rem;
 }
 
+.pix-field {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.pix-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--bg-base);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 10px 12px;
+}
+
+.pix-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pix-key {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
+  color: var(--amber);
+  overflow-wrap: anywhere;
+}
+
+.pix-holder {
+  font-size: 0.75rem;
+  color: var(--paper-dim);
+}
+
+.pix-copy-btn {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1.5px solid var(--paper-dim);
+  color: var(--paper);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border-radius: 3px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.pix-copy-btn:hover,
+.pix-copy-btn:focus-visible {
+  border-color: var(--ice);
+  color: var(--ice);
+}
+
+.pix-box-column {
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pix-qr {
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+  background: #fff;
+  padding: 6px;
+}
+
+.pix-status {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.78rem;
+  color: var(--paper-dim);
+  text-align: center;
+}
+
+.pix-status-waiting::before {
+  content: "● ";
+  color: var(--amber);
+}
+
+.pix-status-ok {
+  color: var(--ice);
+  font-weight: 700;
+}
+
+.pix-note {
+  font-size: 0.75rem;
+  color: var(--paper-dim);
+  line-height: 1.4;
+}
+
+.change-field {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.change-amount {
+  margin-top: 10px;
+}
+
+.change-amount label {
+  display: block;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--paper-dim);
+  margin-bottom: 6px;
+}
+
+.change-amount input[type="text"] {
+  width: 100%;
+  background: var(--bg-base);
+  border: 1px solid var(--line);
+  color: var(--paper);
+  padding: 10px 12px;
+  border-radius: 3px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.88rem;
+}
+
+.change-amount input[type="text"]:focus {
+  outline: none;
+  border-color: var(--ice);
+}
+
 .delivery-payment-options {
   display: flex;
   flex-direction: column;

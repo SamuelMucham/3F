@@ -43,7 +43,7 @@ export default function Contato() {
 
       <iframe
         className="map-panel"
-        src="https://www.google.com/maps/place/3F+Distribuidora+de+Bebidas/@-25.5927322,-49.3314934,21z/data=!4m6!3m5!1s0x94dcff9832192a87:0xdec6c9c8903ee54f!8m2!3d-25.592687!4d-49.3314627!16s%2Fg%2F11rdd7sfk5?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D"
+        src="https://www.google.com/maps?q=3F+Distribuidora+de+Bebidas,+R.+Sebasti%C3%A3o+Penteado+Darcanchy,+313,+Curitiba+-+PR&ll=-25.592687,-49.3314627&z=17&output=embed"
         title="Localização da 3F Bebidas"
         height={360}
         style={{ border: 0 }}

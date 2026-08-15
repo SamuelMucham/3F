@@ -7,10 +7,14 @@ const WHATSAPP_NUMBER = "554197214733";
 
 const PAYMENT_OPTIONS = ["Pix", "Cartão na entrega", "Dinheiro"];
 
+// Chave Pix (NG Cash)
+const PIX_KEY = "46602971000102";
+const PIX_HOLDER = "3F Bebidas";
+
 // Coordenadas da 3F Bebidas (R. Sebastião Penteado Darcanchy, 313 - Campo de Santana, Curitiba - PR)
 const STORE_LAT = -25.592687;
 const STORE_LNG = -49.3314627;
-const RATE_PER_KM = 6; // R$ por KM de distância
+const RATE_PER_KM = 3; // R$ por KM de distância
 
 function parsePrice(price: string): number {
   const digits = price.replace(/[^\d,]/g, "").replace(",", ".");
@@ -68,6 +72,7 @@ export default function CartWidget() {
   const [payment, setPayment] = useState(PAYMENT_OPTIONS[0]);
   const [needsChange, setNeedsChange] = useState<"sim" | "nao" | "">("");
   const [changeFor, setChangeFor] = useState("");
+  const [pixCopied, setPixCopied] = useState(false);
   const [touched, setTouched] = useState(false);
 
   const [freteStatus, setFreteStatus] = useState<FreteStatus>("idle");
@@ -99,11 +104,28 @@ export default function CartWidget() {
     }
   }
 
+  function resetPix() {
+    setPixCopied(false);
+  }
+
   function handlePaymentChange(option: string) {
     setPayment(option);
     if (option !== "Dinheiro") {
       setNeedsChange("");
       setChangeFor("");
+    }
+    if (option !== "Pix") {
+      resetPix();
+    }
+  }
+
+  async function handleCopyPix() {
+    try {
+      await navigator.clipboard.writeText(PIX_KEY);
+      setPixCopied(true);
+      setTimeout(() => setPixCopied(false), 2500);
+    } catch {
+      setPixCopied(false);
     }
   }
 
@@ -187,6 +209,9 @@ export default function CartWidget() {
       `Endereço: ${fullAddress}`,
       reference ? `Referência: ${reference}` : null,
       `Pagamento: ${payment}`,
+      payment === "Pix"
+        ? "⚠️ Envie o comprovante do Pix aqui pra confirmarmos o pedido."
+        : null,
       payment === "Dinheiro" && needsChange === "sim" && changeFor.trim()
         ? `Troco para R$ ${changeFor.trim()}: R$ ${formatTotal(
             Math.max(parsePrice(changeFor) - grandTotal, 0)
@@ -396,6 +421,25 @@ export default function CartWidget() {
                       ))}
                     </div>
                   </div>
+
+                  {payment === "Pix" && (
+                    <div className="delivery-field pix-field">
+                      <label>Chave Pix</label>
+                      <div className="pix-box">
+                        <div className="pix-info">
+                          <span className="pix-key">{PIX_KEY}</span>
+                          <span className="pix-holder">{PIX_HOLDER}</span>
+                        </div>
+                        <button type="button" className="pix-copy-btn" onClick={handleCopyPix}>
+                          {pixCopied ? "Copiado!" : "Copiar"}
+                        </button>
+                      </div>
+                      <span className="pix-note">
+                        Depois de pagar, envie o comprovante aqui no WhatsApp junto com o
+                        pedido.
+                      </span>
+                    </div>
+                  )}
 
                   {payment === "Dinheiro" && (
                     <div className="delivery-field change-field">
