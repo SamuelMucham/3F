@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { menu } from "@/lib/menu-data";
-import ProductList from "@/components/ProductList";
+import { fetchMenu } from "@/lib/menu-api";
+import ProdutosClient from "@/components/ProdutosClient";
 import DeliveryInfo from "@/components/DeliveryInfo";
 
 export const metadata: Metadata = {
   title: "Produtos | 3F Bebidas",
 };
 
-export default function Produtos() {
+export default async function Produtos() {
+  const menu = await fetchMenu();
+
   return (
     <>
       <section className="menu-header">
@@ -17,17 +19,7 @@ export default function Produtos() {
         </div>
       </section>
 
-      <nav className="menu-nav">
-        <div className="menu-nav-inner">
-          {menu.map((section) => (
-            <a key={section.slug} href={`#${section.slug}`}>
-              {section.icon} {section.title}
-            </a>
-          ))}
-        </div>
-      </nav>
-
-      <ProductList />
+      <ProdutosClient menu={menu} />
 
       <DeliveryInfo />
     </>

@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { categories } from "@/lib/menu-data";
+import { fetchCategories } from "@/lib/menu-api";
 
-export default function Home() {
+export default async function Home() {
+  const categories = await fetchCategories();
+
   return (
     <>
       <section className="hero">
@@ -17,11 +19,13 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <Link href="/produtos" className="cta-button">Ver Catálogo Completo</Link>
-              
-                <a className="cta-button"
-          href="https://wa.me/554197214733"
-          target="_blank"
-          rel="noopener noreferrer">
+
+              <a
+                className="cta-button"
+                href="https://wa.me/554197214733"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Peça no WhatsApp
               </a>
             </div>

@@ -23,7 +23,7 @@ export default function Contato() {
           <span className="icon">📞</span>
           <div>
             <h4>WhatsApp</h4>
-            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/554197214733" target="_blank" rel="noopener noreferrer">
               (41) 997214733
             </a>
           </div>
